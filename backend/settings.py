@@ -24,9 +24,9 @@ MEDIA_DIR = BASE_DIR / "media"
 SECRET_KEY = "django-insecure-9=2v+6ls6j3n6mj12p0bmqg!!k8wdj$#xu8)wrx&!pxh#t+ybn"
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['127.0.0.1']
 
 
 # Application definition
@@ -53,6 +53,7 @@ AUTH_USER_MODEL = "App_Login.User"
 MIDDLEWARE = [
     "corsheaders.middleware.CorsMiddleware",
     "django.middleware.security.SecurityMiddleware",
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.common.CommonMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",

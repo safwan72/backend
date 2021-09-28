@@ -19,14 +19,16 @@ from django.conf import settings
 from django.conf.urls import url
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns,static
 from rest_framework_swagger.views import get_swagger_view
-
+from django.views.static import serve
 schema_view = get_swagger_view(title='Restaurant API')
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/login/',include('App_Login.urls')),
         path('api/main/',include('App_Main.urls')),
         path('api/order/',include('App_Order.urls')),
-        url('swagger/',schema_view)
+        url('swagger/',schema_view),
+            url(r'^media/(?P<path>.*)$', serve,{'document_root':       settings.MEDIA_ROOT}), 
+    url(r'^static/(?P<path>.*)$', serve,{'document_root': settings.STATIC_ROOT}), 
         
 ]
 urlpatterns+=staticfiles_urlpatterns()
