@@ -136,8 +136,6 @@ STATIC_URL = "/static/"
 SIMPLE_JWT = {
     "ACCESS_TOKEN_LIFETIME": timedelta(days=3),
 }
-STATIC_ROOT = BASE_DIR/'staticfiles'
-STATICFILES_DIRS = [BASE_DIR/'static']
 REST_FRAMEWORK = {
     "DEFAULT_AUTHENTICATION_CLASSES": (
         "rest_framework_simplejwt.authentication.JWTAuthentication",
