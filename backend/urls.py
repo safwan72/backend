@@ -24,7 +24,7 @@ from rest_framework_swagger.views import get_swagger_view
 from django.views.static import serve
 schema_view = get_swagger_view(title='Restaurant API')
 urlpatterns = [
-    path('', admin.site.urls),
+    path('admin/', admin.site.urls),
     path('api/login/',include('App_Login.urls')),
         path('api/main/',include('App_Main.urls')),
         path('api/order/',include('App_Order.urls')),
