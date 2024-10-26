@@ -6,7 +6,7 @@ from django.contrib.auth.models import (
     AbstractBaseUser,
     PermissionsMixin,
 )
-from django.utils.translation import ugettext_lazy
+from django.utils.translation import gettext_lazy
 from django.db.models.signals import post_save
 from django.dispatch import receiver
 
@@ -56,12 +56,12 @@ class User(AbstractBaseUser, PermissionsMixin):
     username = models.CharField(max_length=264,unique=True)
     roles=models.CharField(max_length=40,choices=ROLES,default=ROLES[1][1])
     is_staff = models.BooleanField(
-        ugettext_lazy("staff_status"),
+        gettext_lazy("staff_status"),
         default=False,
         help_text="Determines Whether They Can Log in this Site or not",
     )
     is_active = models.BooleanField(
-        ugettext_lazy("active"),
+        gettext_lazy("active"),
         default=True,
         help_text="Determines Whether their Account Status is Active or not",
     )
